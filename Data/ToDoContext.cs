@@ -26,9 +26,9 @@ namespace ToDoApp.Data
                 );
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL("Server=localhost;Database=ToDoDb;User=root;Password=root123;");
-        }
+        }*/
     }
 }

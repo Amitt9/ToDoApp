@@ -11,8 +11,8 @@ using ToDoApp.Data;
 namespace ToDoApp.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    [Migration("20240618094417_UpdatePriorityToString")]
-    partial class UpdatePriorityToString
+    [Migration("20240620102958_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

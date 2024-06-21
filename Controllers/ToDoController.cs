@@ -35,25 +35,7 @@ namespace ToDoApp.Controllers
             }
         }
 
-        // GET: api/ToDoItems/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ToDo>> GetToDoItem(int id)
-        {
-            try
-            {
-                var toDoItem = await _context.ToDoItems.FindAsync(id);
-                if (toDoItem == null)
-                {
-                    return NotFound(new { Message = $"ToDo item with Id = {id} not found." });
-                }
-
-                return Ok(new { Message = "ToDo item retrieved successfully.", Data = toDoItem });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, $"Error retrieving ToDo item: {ex.Message}");
-            }
-        }
+        
 
         // PUT: api/ToDoItems/5
         [HttpPut("{id}")]
@@ -102,7 +84,7 @@ namespace ToDoApp.Controllers
                 _context.ToDoItems.Add(toDoItem);
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction(nameof(GetToDoItem), new { id = toDoItem.Id }, new { Message = "ToDo item created successfully.", Data = toDoItem });
+                return Created("", new { Message = "ToDo item created successfully.", Data = toDoItem });
             }
             catch (Exception ex)
             {
